@@ -1,0 +1,252 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/background"
+            android:layout_margin="@dimen/dimen_10"
+        >
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_60"
+            android:gravity="center"
+            android:text="AJOUTER UN MOT"
+            android:background="@color/colorPrimary"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/wolof_word_card"
+            android:layout_below="@+id/dialog_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/wolof_word"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Mot en wolof"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/wolof_word_def_card_desc"
+            android:layout_below="@+id/wolof_word_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/wolof_word_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_75"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Definition wolof"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/french_word_card"
+            android:layout_below="@+id/wolof_word_def_card_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/french_word"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Mot en Français"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/french_word_def_card_desc"
+            android:layout_below="@+id/french_word_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/french_word_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Definition francaise"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/english_word_card"
+            android:layout_below="@+id/french_word_def_card_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/english_word"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Mot en Anglais"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/english_word_def_card_desc"
+            android:layout_below="@+id/english_word_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_5"
+            android:layout_marginRight="@dimen/dimen_5"
+            app:cardCornerRadius="2sp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <EditText
+                    android:id="@+id/english_word_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100"
+                    android:layout_weight="1"
+                    android:background="#00000000"
+                    android:hint="Definition Anglaise"
+                    android:textSize="15sp"
+                    android:padding="@dimen/dimen_10"
+                    android:layout_margin="@dimen/dimen_5"
+                    />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:layout_below="@+id/english_word_def_card_desc"
+            android:id="@+id/create_note"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40"
+            android:text="VALIDER"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_border_green_bg_white"
+            android:padding="@dimen/dimen_5"
+            android:layout_margin="@dimen/dimen_5"
+            />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"
+            android:layout_below="@id/create_note"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background"
+            />
+        <Button
+            android:id="@+id/cancel_dialog_btn"
+            android:layout_below="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50"
+            android:maxHeight="@dimen/dimen_50"
+            android:minHeight="@dimen/dimen_50"
+            android:background="@drawable/button_transparent_bg"
+            android:text="ANNULER"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+</ScrollView>
+
