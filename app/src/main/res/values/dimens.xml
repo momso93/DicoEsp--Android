@@ -18,4 +18,7 @@
     <dimen name="dimen_75">75dp</dimen>
     <dimen name="dimen_30">30dp</dimen>
     <dimen name="dimen_35">35dp</dimen>
+    <dimen name="search_view_inset">5dp</dimen>
+    <dimen name="dimen_15">15dp</dimen>
+    <dimen name="dimen_25">25dp</dimen>
 </resources>

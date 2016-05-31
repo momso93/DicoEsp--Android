@@ -48,19 +48,44 @@ public class EspDicoDatabaseService implements DatabaseService<Word>
     @Override
     public void editWord(String id)
     {
-
+        /*Realm realm = Realm.getInstance(mContext);
+        realm.beginTransaction();*/
     }
 
     @Override
-    public void getWord(String id)
+    public Word getWord(String id)
+    {
+        Realm realm = Realm.getInstance(mContext);
+        Word word = realm.where(Word.class)
+                .equalTo("id", id)
+                .findFirst();
+
+        return word;
+    }
+
+    @Override
+    public Word getWordFromText(String text)
     {
 
+        Realm realm = Realm.getInstance(mContext);
+        Word word = realm.where(Word.class)
+                .equalTo("frenchWord", text.trim())
+                .findFirst();
+
+        return word;
     }
 
     @Override
     public void deleteWord(String id)
     {
-
+        Realm realm = Realm.getInstance(mContext);
+        Word word = getWord(id);
+        if (word != null)
+        {
+            realm.beginTransaction();
+            word.removeFromRealm();
+            realm.commitTransaction();
+        }
     }
 
     @Override

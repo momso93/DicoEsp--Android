@@ -2,6 +2,7 @@ package com.rygelouv.dicoesp.interfaces.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
@@ -16,7 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.rygelouv.dicoesp.R;
+import com.rygelouv.dicoesp.constants.Constants;
 import com.rygelouv.dicoesp.event.RecyclerClickListener;
 import com.rygelouv.dicoesp.interfaces.adapter.EspDictAdapter;
 import com.rygelouv.dicoesp.interfaces.fragments.AddWordFragment;
@@ -108,7 +113,57 @@ public class EditDictActivity extends AppCompatActivity
     @Override
     public void onElementClicked(int position)
     {
+        Intent intent = new Intent(this, WordDetailActivity.class);
+        intent.putExtra(Constants.WORD_ID_KEY, mDataset.get(position).getId());
+        intent.putExtra(Constants.WORD_SELECTED_KEY, mDataset.get(position).getFrenchWord()
+                +" [Français]");
+        startActivity(intent);
+    }
 
+    @Override
+    public void onOptionsClicked(int position, String action)
+    {
+        switch (action)
+        {
+            case Constants.ACTION_DELETE_WORD:
+                deleteWord(position);
+                break;
+            case Constants.ACTION_EDIT_WORD:
+                Intent intent = new Intent(EditDictActivity.this, AddWordActivity.class);
+                intent.putExtra(Constants.EDIT_INIC_KEY, true);
+                intent.putExtra(Constants.WORD_ID_KEY, mDataset.get(position).getId());
+                startActivity(intent);
+                break;
+        }
+    }
+
+    public void deleteWord(final int position)
+    {
+        new MaterialStyledDialog(this)
+                .setTitle("SUPPRESSION")
+                .setDescription("Voulez vous vraiment supprimer ce mot du dictionnaire ?")
+                .setIcon(getResources().getDrawable(R.drawable.check_circle_outline))
+                .withDialogAnimation(true)
+                .setHeaderColor(android.R.color.holo_red_light)
+                .setPositive("OUI", new MaterialDialog.SingleButtonCallback()
+                {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which)
+                    {
+                        EspDicoDatabaseService.getInstance(EditDictActivity.this)
+                                .deleteWord(mDataset.get(position).getId());
+                        dialog.dismiss();
+                    }
+                })
+                .setNegative("ANNULER", new MaterialDialog.SingleButtonCallback()
+                {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which)
+                    {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     @Override

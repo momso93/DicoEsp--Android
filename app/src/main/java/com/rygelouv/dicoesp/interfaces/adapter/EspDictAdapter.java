@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.rygelouv.dicoesp.R;
+import com.rygelouv.dicoesp.constants.Constants;
 import com.rygelouv.dicoesp.event.RecyclerClickListener;
 import com.rygelouv.dicoesp.model.Word;
 
@@ -72,6 +73,28 @@ public class EspDictAdapter extends RecyclerView.Adapter<EspDictAdapter.ViewHold
                 recyclerClickListener.onElementClicked(position);
             }
         });
+
+        holder.wordEnglishDef.setText(word.getEnglishDef());
+        holder.wordFrenchDef.setText(word.getFrenchDef());
+        holder.wordWolofDef.setText(word.getWolofDef());
+
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                recyclerClickListener.onOptionsClicked(position, Constants.ACTION_DELETE_WORD);
+            }
+        });
+
+        holder.editBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                recyclerClickListener.onOptionsClicked(position, Constants.ACTION_EDIT_WORD);
+            }
+        });
     }
 
     @Override
@@ -101,6 +124,12 @@ public class EspDictAdapter extends RecyclerView.Adapter<EspDictAdapter.ViewHold
         ImageButton editBtn;
         @InjectView(R.id.delete_btn)
         ImageButton deleteBtn;
+        @InjectView(R.id.word_french_def)
+        TextView wordFrenchDef;
+        @InjectView(R.id.word_wolof_def)
+        TextView wordWolofDef;
+        @InjectView(R.id.word_english_def)
+        TextView wordEnglishDef;
 
         public ViewHolder(View itemView)
         {

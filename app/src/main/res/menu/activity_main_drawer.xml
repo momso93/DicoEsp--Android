@@ -4,16 +4,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_my_dictionnary"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_import_contacts_black_24dp"
             android:title="Mon dictionnaire"/>
         <item
             android:id="@+id/nav_manage_dict"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_note_add_black_24dp"
             android:title="Alimenter mon dictionnaire"/>
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Autre menu"/>
         <!--<item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

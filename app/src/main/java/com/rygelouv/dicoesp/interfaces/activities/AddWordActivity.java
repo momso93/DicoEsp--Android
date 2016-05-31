@@ -14,6 +14,7 @@ import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.github.javiersantos.materialstyleddialogs.MaterialStyledDialog;
 import com.rygelouv.dicoesp.R;
+import com.rygelouv.dicoesp.constants.Constants;
 import com.rygelouv.dicoesp.model.Word;
 import com.rygelouv.dicoesp.service.EspDicoDatabaseService;
 
@@ -40,6 +41,9 @@ public class AddWordActivity extends AppCompatActivity
     @InjectView(R.id.validate_form)
     Button validateForm;
 
+    private Word word;
+    private boolean isEdit = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -51,6 +55,37 @@ public class AddWordActivity extends AppCompatActivity
         setTitle("Ajouter un mot au dictionnaire");
         ButterKnife.inject(this);
 
+        setupOpeningOptions();
+
+    }
+
+    private void setupOpeningOptions()
+    {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null)
+        {
+            if (bundle.getBoolean(Constants.EDIT_INIC_KEY))
+            {
+                isEdit = true;
+                if (bundle.getString(Constants.WORD_ID_KEY) != null)
+                {
+                    word = EspDicoDatabaseService.getInstance(this)
+                            .getWord(bundle.getString(Constants.WORD_ID_KEY));
+
+                    fillForm();
+                }
+            }
+        }
+    }
+
+    public void fillForm()
+    {
+        wolofWord.setText(word.getWolofWord());
+        wolofWordDef.setText(word.getWolofDef());
+        englishWord.setText(word.getEnglishWord());
+        englishWordDef.setText(word.getEnglishDef());
+        frenchWord.setText(word.getFrenchWord());
+        frenchWordDef.setText(word.getFrenchDef());
     }
 
     @OnClick(R.id.validate_form)

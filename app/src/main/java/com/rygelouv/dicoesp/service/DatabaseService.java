@@ -1,7 +1,5 @@
 package com.rygelouv.dicoesp.service;
 
-import com.rygelouv.dicoesp.model.Word;
-
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
@@ -18,7 +16,9 @@ public interface DatabaseService<T extends RealmObject>
 
     void editWord(String id);
 
-    void getWord(String id);
+    T getWord(String id);
+
+    T getWordFromText(String text);
 
     void deleteWord(String id);
 

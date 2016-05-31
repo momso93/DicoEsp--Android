@@ -10,4 +10,6 @@ package com.rygelouv.dicoesp.event;
 public interface RecyclerClickListener
 {
     void onElementClicked(int position);
+
+    void onOptionsClicked(int position, String action);
 }
