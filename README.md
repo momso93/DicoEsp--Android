@@ -2,7 +2,7 @@
 
 A mobile app that helps you create your own dictionnary French-English-Wolof
 
-## What is this fo ?r
+## What is this for ?
 
 This demo app demonstrates the use of famous libraries for the Android applications development
 
